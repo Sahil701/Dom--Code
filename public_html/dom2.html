@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <center>
+        <h3 id="message">Hi Micky</h3>
+        <img src="micky.jpeg"  width="200" height="200" id="main" alt="Micky"/>
+        <br><br>
+        <img onclick="changeImage(this)" alt="Doremon" src="i1.jpeg" width="100" height="100" id="first"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img onclick="changeImage(this)" alt="Handsom Boy" src="i2.jpeg" width="100" height="100" id="second"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img onclick="changeImage(this)" alt="Minion" src="i3.jpeg" width="100" height="100" id="third"/>
+    </center>
+    <script>
+        var imageName = "Micky"
+        function changeImage(currentImageObject){
+            var h3 = document.getElementById("message");
+            var mainImageObject = document.getElementById("main");
+           
+            var temp = mainImageObject.src;
+            mainImageObject.src = currentImageObject.src;
+            currentImageObject.src = temp;
+            
+            var tempName = mainImageObject.alt;
+            h3.innerHTML = "Hi "+currentImageObject.alt;
+            mainImageObject.alt = currentImageObject.alt;
+            currentImageObject.alt = tempName;
+        }
+    </script>
+    </body>
+</html>
