@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            var api = "https://jsonplaceholder.typicode.com/posts";
+            xhttp.open("GET",api,true);
+            xhttp.send();
+            
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    //alert(xhttp.responseText);
+                   var data = JSON.parse(xhttp.responseText);
+                   document.write("<table border='1'>");
+                   document.write("<tr>");
+                   document.write("<td>UserId</td>");
+                   document.write("<td>Id</td>");
+                   document.write("<td>Title</td>");
+                   document.write("<td>Body</td>");
+                   document.write("</tr>");
+                   for(var i=0; i<data.length; i++){
+                    document.write("<tr>");
+                    document.write("<td>"+data[i].userId+"</td>");
+                    document.write("<td>"+data[i].id+"</td>");
+                    document.write("<td>"+data[i].title+"</td>");
+                    document.write("<td>"+data[i].body+"</td>");
+                    document.write("</tr>");    
+                   }
+                   document.write("</table>");
+                }
+            }
+        </script>
+    </body>
+</html>
